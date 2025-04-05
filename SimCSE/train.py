@@ -122,12 +122,7 @@ class ModelArguments:
             "help": "Use MLP only during training"
         }
     )
-    local_rank: int = field(
-        default = -1,
-        metadata={
-            "help": "Local rank for distributed training"
-        }
-    )
+
 
 
 @dataclass
@@ -179,6 +174,13 @@ class DataTrainingArguments:
     mlm_probability: float = field(
         default=0.15, 
         metadata={"help": "Ratio of tokens to mask for MLM (only effective if --do_mlm)"}
+    )
+
+    local_rank: int = field(
+        default = -1,
+        metadata={
+            "help": "Local rank for distributed training"
+        }
     )
 
     def __post_init__(self):
