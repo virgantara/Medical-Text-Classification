@@ -124,7 +124,6 @@ class ModelArguments:
     )
 
 
-
 @dataclass
 class DataTrainingArguments:
     """
@@ -176,8 +175,6 @@ class DataTrainingArguments:
         metadata={"help": "Ratio of tokens to mask for MLM (only effective if --do_mlm)"}
     )
 
-
-
     def __post_init__(self):
         if self.dataset_name is None and self.train_file is None and self.validation_file is None:
             raise ValueError("Need either a dataset name or a training/validation file.")
@@ -196,13 +193,6 @@ class OurTrainingArguments(TrainingArguments):
     eval_transfer: bool = field(
         default=False,
         metadata={"help": "Evaluate transfer task dev sets (in validation)."}
-    )
-
-    local_rank: int = field(
-        default = -1,
-        metadata={
-            "help": "Local rank for distributed training"
-        }
     )
 
     @cached_property
