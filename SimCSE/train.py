@@ -122,6 +122,12 @@ class ModelArguments:
             "help": "Use MLP only during training"
         }
     )
+    local_rank: int = field(
+        default = -1,
+        metadata={
+            "help": "Local rank for distributed training"
+        }
+    )
 
 
 @dataclass
